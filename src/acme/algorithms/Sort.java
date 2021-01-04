@@ -19,9 +19,7 @@ public class Sort {
      * @return sorted array
      */
     public static int[] bubbleSortAsc(int[] array) {
-        int unsortedIdx = array.length;
-
-        for (unsortedIdx = array.length - 1; unsortedIdx > 0; --unsortedIdx) {
+        for (int unsortedIdx = array.length - 1; unsortedIdx > 0; --unsortedIdx) {
             for (int i = 0; i < unsortedIdx; ++i) {
                 if (array[i] > array[i + 1]) { // sort is stable, it could become unstable by >= comparison
                     swap(array, i, i + 1);
