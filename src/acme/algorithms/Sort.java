@@ -73,6 +73,10 @@ public class Sort {
      * @param j index
      */
     protected static void swap(int[] array, int i, int j) {
+        if (i == j) {
+            return;
+        }
+
         int temp = array[j];
 
         array[j] = array[i];
