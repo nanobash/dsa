@@ -3,7 +3,9 @@ package acme.algorithms;
 public class Sort {
     /**
      * Bubble sort sorts on array in asc order,
-     *      therefore larger values in the array will bubble up to the end of the array.
+     *      by bubbling (moving) up larger values of the array to the end of the array.
+     *
+     * Bubble sort divides an array into sorted and unsorted partitions.
      *
      * Bubble sort is a stable algorithm, meaning that it preserves relative ordering of duplicate items.
      *
@@ -32,7 +34,9 @@ public class Sort {
 
     /**
      * Bubble sort sorts on array in desc order,
-     *      therefore smaller values in the array will bubble up to the end of the array.
+     *      by bubbling (moving) up smaller values of the array to the end of the array.
+     *
+     * Bubble sort divides an array into sorted and unsorted partitions.
      *
      * Bubble sort is a stable algorithm, meaning that it preserves relative ordering of duplicate items.
      *
