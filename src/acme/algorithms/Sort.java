@@ -17,14 +17,12 @@ public class Sort {
     public static int[] bubbleSortAsc(int[] array) {
         int unsortedIdx = array.length;
 
-        while (unsortedIdx != 0) {
-            for (int i = 0; i < unsortedIdx - 1; ++i) {
+        for (unsortedIdx = array.length - 1; unsortedIdx > 0; --unsortedIdx) {
+            for (int i = 0; i < unsortedIdx; ++i) {
                 if (array[i] > array[i + 1]) {
                     swap(array, i, i + 1);
                 }
             }
-
-            --unsortedIdx;
         }
 
         return array;
