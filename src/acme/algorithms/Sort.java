@@ -54,7 +54,7 @@ public class Sort {
 
         while (unsortedIdx != 0) {
             for (int i = 0; i < unsortedIdx - 1; ++i) {
-                if (array[i] < array[i + 1]) { // sort is stable, it could become unstable by >= comparison
+                if (array[i] < array[i + 1]) { // sort is stable, it could become unstable by <= comparison
                     swap(array, i, i + 1);
                 }
             }
