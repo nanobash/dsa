@@ -20,10 +20,7 @@ public class Sort {
         while (unsortedIdx != 0) {
             for (int i = 0; i < unsortedIdx - 1; ++i) {
                 if (array[i] > array[i + 1]) {
-                    int temp = array[i + 1];
-
-                    array[i + 1] = array[i];
-                    array[i] = temp;
+                    swap(array, i, i + 1);
                 }
             }
 
@@ -52,10 +49,7 @@ public class Sort {
         while (unsortedIdx != 0) {
             for (int i = 0; i < unsortedIdx - 1; ++i) {
                 if (array[i] < array[i + 1]) {
-                    int temp = array[i + 1];
-
-                    array[i + 1] = array[i];
-                    array[i] = temp;
+                    swap(array, i, i + 1);
                 }
             }
 
@@ -63,5 +57,19 @@ public class Sort {
         }
 
         return array;
+    }
+
+    /**
+     * Swaps items of the array of specific i and j indices.
+     *
+     * @param array array
+     * @param i index
+     * @param j index
+     */
+    protected static void swap(int[] array, int i, int j) {
+        int temp = array[j];
+
+        array[j] = array[i];
+        array[i] = temp;
     }
 }
