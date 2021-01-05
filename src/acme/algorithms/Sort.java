@@ -2,6 +2,78 @@ package acme.algorithms;
 
 public class Sort {
     /**
+     * Insertion sort is considered to be generally more effective than bubble sort, and more efficient than selection
+     *      sort if some part of the array is already sorted, as it will need less iterations. However compare to
+     *      selection sort swapping in insertion sort considered to be O of n ^ 2, while on selection sort O of n.
+     *
+     * Insertion sort sorts on array starting from 1 index, considering that first part item at 0 index is already
+     *      sorted, and does checks starting from 1 index. Insertion sort is efficient is some part of the array is
+     *      already sorted.
+     *
+     * Insertion sort divides an array into sorted and unsorted partitions.
+     *
+     * Insertion sort is stable algorithm.
+     *
+     * Time complexity: O(n ^ 2), O of n ^ 2
+     *
+     * Space complexity: This is an in-place algorithm, as extra memory that is needed doesn't depend
+     *      on the number of items that are going to be sorted.
+     *
+     * @param array unsorted array
+     *
+     * @return sorted array
+     */
+    public static int[] insertionSortAsc(int[] array) {
+        for (int i = 1; i < array.length; ++i) {
+            int firstUnsortedIdx = i;
+
+            while (firstUnsortedIdx != 0 && array[firstUnsortedIdx - 1] > array[firstUnsortedIdx]) {
+                swap(array, firstUnsortedIdx - 1, firstUnsortedIdx);
+
+                --firstUnsortedIdx;
+            }
+        }
+
+        return array;
+    }
+
+    /**
+     * Insertion sort is considered to be generally more effective than bubble sort, and more efficient than selection
+     *      sort if some part of the array is already sorted, as it will need less iterations. However compare to
+     *      selection sort swapping in insertion sort considered to be O of n ^ 2, while on selection sort O of n.
+     *
+     * Insertion sort sorts on array starting from 1 index, considering that first part item at 0 index is already
+     *      sorted, and does checks starting from 1 index. Insertion sort is efficient is some part of the array is
+     *      already sorted.
+     *
+     * Insertion sort divides an array into sorted and unsorted partitions.
+     *
+     * Insertion sort is stable algorithm.
+     *
+     * Time complexity: O(n ^ 2), O of n ^ 2
+     *
+     * Space complexity: This is an in-place algorithm, as extra memory that is needed doesn't depend
+     *      on the number of items that are going to be sorted.
+     *
+     * @param array unsorted array
+     *
+     * @return sorted array
+     */
+    public static int[] insertionSortDesc(int[] array) {
+        for (int i = 1; i < array.length; ++i) {
+            int firstUnsortedIdx = i;
+
+            while (firstUnsortedIdx != 0 && array[firstUnsortedIdx - 1] < array[firstUnsortedIdx]) {
+                swap(array, firstUnsortedIdx - 1, firstUnsortedIdx);
+
+                --firstUnsortedIdx;
+            }
+        }
+
+        return array;
+    }
+
+    /**
      * Selection sort is considered to be generally more effective than bubble sort, as it does swapping only once
      *      per sub iteration, compare to bubble sort. However selection sort does not guarantees stable sorting, hence
      *      selection sort is an unstable sort algorithm.
