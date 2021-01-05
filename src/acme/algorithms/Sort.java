@@ -24,14 +24,18 @@ public class Sort {
      * @return sorted array
      */
     public static int[] insertionSortAsc(int[] array) {
-        for (int i = 1; i < array.length; ++i) {
-            int firstUnsortedIdx = i;
+        for (int firstUnsortedIdx = 1; firstUnsortedIdx < array.length; ++firstUnsortedIdx) {
+            int newElement = array[firstUnsortedIdx];
 
-            while (firstUnsortedIdx != 0 && array[firstUnsortedIdx - 1] > array[firstUnsortedIdx]) {
-                swap(array, firstUnsortedIdx - 1, firstUnsortedIdx);
+            int i = firstUnsortedIdx;
 
-                --firstUnsortedIdx;
+            while (i != 0 && array[i - 1] > newElement) {
+                array[i] = array[i - 1];
+
+                --i;
             }
+
+            array[i] = newElement;
         }
 
         return array;
@@ -60,14 +64,18 @@ public class Sort {
      * @return sorted array
      */
     public static int[] insertionSortDesc(int[] array) {
-        for (int i = 1; i < array.length; ++i) {
-            int firstUnsortedIdx = i;
+        for (int firstUnsortedIdx = 1; firstUnsortedIdx < array.length; ++firstUnsortedIdx) {
+            int newElement = array[firstUnsortedIdx];
 
-            while (firstUnsortedIdx != 0 && array[firstUnsortedIdx - 1] < array[firstUnsortedIdx]) {
-                swap(array, firstUnsortedIdx - 1, firstUnsortedIdx);
+            int i = firstUnsortedIdx;
 
-                --firstUnsortedIdx;
+            while (i != 0 && array[i - 1] < newElement) {
+                array[i] = array[i - 1];
+
+                --i;
             }
+
+            array[i] = newElement;
         }
 
         return array;
