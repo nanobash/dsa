@@ -4,7 +4,7 @@ public class Sort {
     /**
      * Insertion sort is considered to be generally more effective than bubble sort, and more efficient than selection
      *      sort if some part of the array is already sorted, as it will need less iterations. However compare to
-     *      selection sort swapping in insertion sort considered to be O of n ^ 2, while on selection sort O of n.
+     *      selection sort shifting in insertion sort considered to be O of n ^ 2, while on selection sort O of n.
      *
      * Insertion sort sorts on array starting from 1 index, considering that first part item at 0 index is already
      *      sorted, and does checks starting from 1 index. Insertion sort is efficient is some part of the array is
@@ -44,7 +44,7 @@ public class Sort {
     /**
      * Insertion sort is considered to be generally more effective than bubble sort, and more efficient than selection
      *      sort if some part of the array is already sorted, as it will need less iterations. However compare to
-     *      selection sort swapping in insertion sort considered to be O of n ^ 2, while on selection sort O of n.
+     *      selection sort shifting in insertion sort considered to be O of n ^ 2, while on selection sort O of n.
      *
      * Insertion sort sorts on array starting from 1 index, considering that first part item at 0 index is already
      *      sorted, and does checks starting from 1 index. Insertion sort is efficient is some part of the array is
