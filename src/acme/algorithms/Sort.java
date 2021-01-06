@@ -2,6 +2,72 @@ package acme.algorithms;
 
 public class Sort {
     /**
+     * Shell sort optimises insertion sort by reducing shifting items.
+     *
+     * Shell sort is unstable algorithm.
+     *
+     * Time complexity: O(n ^ 2), O of n ^ 2
+     *
+     * Space complexity: In-place algorithm
+     *
+     * @param array unsorted array
+     *
+     * @return sorted array
+     */
+    public static int[] shellSortAscGapOfHalfArrayLength(int[] array) {
+        for (int gap = array.length / 2; gap > 0; gap /= 2) {
+            for (int firstUnsortedIdx = gap; firstUnsortedIdx < array.length; ++firstUnsortedIdx) {
+                int currentItem = array[firstUnsortedIdx];
+
+                int i = firstUnsortedIdx;
+
+                while (i >= gap && array[i - gap] > currentItem) {
+                    array[i] = array[i - gap];
+
+                    i -= gap;
+                }
+
+                array[i] = currentItem;
+            }
+        }
+
+        return array;
+    }
+
+    /**
+     * Shell sort optimises insertion sort by reducing shifting items.
+     *
+     * Shell sort is unstable algorithm.
+     *
+     * Time complexity: O(n ^ 2), O of n ^ 2
+     *
+     * Space complexity: In-place algorithm
+     *
+     * @param array unsorted array
+     *
+     * @return sorted array
+     */
+    public static int[] shellSortDescGapOfHalfArrayLength(int[] array) {
+        for (int gap = array.length / 2; gap > 0; gap /= 2) {
+            for (int firstUnsortedIdx = gap; firstUnsortedIdx < array.length; ++firstUnsortedIdx) {
+                int currentItem = array[firstUnsortedIdx];
+
+                int i = firstUnsortedIdx;
+
+                while (i >= gap && array[i - gap] < currentItem) {
+                    array[i] = array[i - gap];
+
+                    i -= gap;
+                }
+
+                array[i] = currentItem;
+            }
+        }
+
+        return array;
+    }
+
+    /**
      * Insertion sort is considered to be generally more effective than bubble sort, and more efficient than selection
      *      sort if some part of the array is already sorted, as it will need less iterations. However compare to
      *      selection sort shifting in insertion sort considered to be O of n ^ 2, while on selection sort O of n.
