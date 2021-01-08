@@ -1,6 +1,47 @@
 package acme.algorithms;
 
 public class Sort {
+    public static int[] shellSortAscGapOfKnuth(int[] array) {
+        int gap = getKnuthSequence(array.length);
+
+        for (; gap > 0; --gap) {
+            for (int firstUnsortedIdx = gap; firstUnsortedIdx < array.length; ++firstUnsortedIdx) {
+                int currentItem = array[firstUnsortedIdx];
+
+                int i = firstUnsortedIdx;
+
+                while (i >= gap && array[i - gap] > currentItem) {
+                    array[i] = array[i - gap];
+
+                    i -= gap;
+                }
+
+                array[i] = currentItem;
+            }
+        }
+
+        return array;
+    }
+
+    /**
+     * @param length length of array
+     *
+     * @return gap calculated based on knuth sequence
+     */
+    public static int getKnuthSequence(int length) {
+        int limit = length * 2 + 1;
+        int base = 3;
+        int result = 1;
+
+        while (base < limit) {
+            ++result;
+
+            base *= base;
+        }
+
+        return result;
+    }
+
     /**
      * Shell sort optimises insertion sort by reducing shifting items.
      *
