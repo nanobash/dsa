@@ -65,3 +65,17 @@
   Most of the time it performs better than the merge sort
 * Space complexity: In-place algorithm
 * Unstable algorithm
+
+---
+
+**Counting sort**
+
+* Makes assumptions about the data
+* Doesn't use comparisons
+* Counts the number of occurrences of each value
+* Only works with non-negative discrete values (can't work with floats, strings)
+* Values must be within a specific rage
+* Counting sort is best used when range of unsorted values are around the same length of the input array
+* Time complexity: O(n), O of n
+* Space complexity: Not in-place algorithm
+* Unstable (generally unstable, can be made as stable with additional sort though)

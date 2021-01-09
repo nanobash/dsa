@@ -2,6 +2,33 @@ package acme.algorithms;
 
 public class Sort {
     /**
+     * Sorts array based on counting sort assumptions
+     *
+     * @param array unsorted array
+     * @param min unsorted array min value
+     * @param max unsorted array max value
+     *
+     * @return sorted array
+     */
+    public static int[] countingSortAsc(int[] array, int min, int max) {
+        int[] counting = new int[max - min + 1];
+
+        for (int k : array) {
+            counting[k - min]++;
+        }
+
+        int c = 0;
+        for (int i = min; i <= max; ++i) {
+            while (counting[i - min] > 0) {
+                array[c++] = i;
+                counting[i - min]--;
+            }
+        }
+
+        return array;
+    }
+
+    /**
      * Time complexity: Average O(n * log(n)), worst O(n ^ 2)
      * Space complexity: In-place algorithm
      *
