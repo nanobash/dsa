@@ -1,20 +1,36 @@
 package acme.algorithms;
 
 public class Sort {
+    /**
+     * Merge sort
+     *
+     * Time complexity: O(n * log(n)), O of n * log(n)
+     * Space complexity: Not in-place algorithm
+     * Stable algorithm
+     *
+     * @param array unsorted array
+     * @param start unsorted array start index
+     * @param end unsorted array end index
+     */
     public static void mergeSort(int[] array, int start, int end) {
         if (end - start < 2) {
             return;
         }
 
         int mid = (start + end) / 2;
-
         mergeSort(array, start, mid);
         mergeSort(array, mid, end);
-
         merge(array, start, mid, end);
     }
 
-    // 20, 35, -15, 7, 55, 1, -22
+    /**
+     * Merges two unsorted partitions.
+     *
+     * @param array unsorted array
+     * @param start unsorted array start index
+     * @param mid unsorted array mid index
+     * @param end unsorted array end index
+     */
     private static void merge(int[] array, int start, int mid, int end) {
         if (array[mid - 1] <= array[mid]) {
             return;
@@ -31,15 +47,7 @@ public class Sort {
         }
 
         System.arraycopy(array, i, array, start + tempIndex, mid - i);
-
-//        for (int counter = mid - i, z = 0; counter > 0; --counter, ++z) {
-//            array[start + tempIndex + z] = array[i + z];
-//        }
-
         System.arraycopy(temp, 0, array, start, tempIndex);
-//        for (int z = 0; z < tempIndex; ++z) {
-//            array[start + z] = temp[z];
-//        }
     }
 
     public static int[] shellSortAscGapOfKnuth(int[] array) {
