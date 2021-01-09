@@ -65,15 +65,15 @@ public class Sort {
      * @param start unsorted array start index
      * @param end unsorted array end index
      */
-    public static void mergeSort(int[] array, int start, int end) {
+    public static void mergeSortAsc(int[] array, int start, int end) {
         if (end - start < 2) {
             return;
         }
 
         int mid = (start + end) / 2;
-        mergeSort(array, start, mid);
-        mergeSort(array, mid, end);
-        merge(array, start, mid, end);
+        mergeSortAsc(array, start, mid);
+        mergeSortAsc(array, mid, end);
+        mergeAsc(array, start, mid, end);
     }
 
     /**
@@ -84,7 +84,7 @@ public class Sort {
      * @param mid unsorted array mid index
      * @param end unsorted array end index
      */
-    private static void merge(int[] array, int start, int mid, int end) {
+    private static void mergeAsc(int[] array, int start, int mid, int end) {
         if (array[mid - 1] <= array[mid]) {
             return;
         }
