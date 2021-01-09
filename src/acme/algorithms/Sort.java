@@ -1,6 +1,47 @@
 package acme.algorithms;
 
 public class Sort {
+    public static void mergeSort(int[] array, int start, int end) {
+        if (end - start < 2) {
+            return;
+        }
+
+        int mid = (start + end) / 2;
+
+        mergeSort(array, start, mid);
+        mergeSort(array, mid, end);
+
+        merge(array, start, mid, end);
+    }
+
+    // 20, 35, -15, 7, 55, 1, -22
+    private static void merge(int[] array, int start, int mid, int end) {
+        if (array[mid - 1] <= array[mid]) {
+            return;
+        }
+
+        int i = start;
+        int j = mid;
+        int tempIndex = 0;
+
+        int[] temp = new int[end - start];
+
+        while (i < mid && j < end) {
+            temp[tempIndex++] = array[i] <= array[j] ? array[i++] : array[j++];
+        }
+
+        System.arraycopy(array, i, array, start + tempIndex, mid - i);
+
+//        for (int counter = mid - i, z = 0; counter > 0; --counter, ++z) {
+//            array[start + tempIndex + z] = array[i + z];
+//        }
+
+        System.arraycopy(temp, 0, array, start, tempIndex);
+//        for (int z = 0; z < tempIndex; ++z) {
+//            array[start + z] = temp[z];
+//        }
+    }
+
     public static int[] shellSortAscGapOfKnuth(int[] array) {
         int gap = getKnuthSequence(array.length);
 

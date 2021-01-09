@@ -34,3 +34,11 @@
 * Unstable sort algorithm (does not guarantee to preserve ordering of relative duplicate items)
 * Does not require as much shifting as insertion sort, so it usually performs better
 * Shell sort gap calculation idea can be applied to insertion sort (decreases shifting) and bubble sort (decreases swapping)
+
+---
+
+**Merge sort**
+
+* Time complexity: O(n * log(n))
+* Space complexity: Not in-place algorithm
+* Stable algorithm
