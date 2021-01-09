@@ -2,6 +2,59 @@ package acme.algorithms;
 
 public class Sort {
     /**
+     * Time complexity: Average O(n * log(n)), worst O(n ^ 2)
+     * Space complexity: In-place algorithm
+     *
+     * @param array unsorted array
+     * @param start unsorted array start index
+     * @param end unsorted array end index
+     */
+    public static void quickSortAsc(int[] array, int start, int end) {
+        if (end - start < 2) {
+            return;
+        }
+
+        int pivotIndex = quickSortAscPartition(array, start, end);
+        quickSortAsc(array, start, pivotIndex);
+        quickSortAsc(array, pivotIndex + 1, end);
+    }
+
+    /**
+     * Returns unsorted array pivot item index
+     *
+     * @param array unsorted array
+     * @param start unsorted array start index
+     * @param end unsorted array end index
+     *
+     * @return pivot item index
+     */
+    private static int quickSortAscPartition(int[] array, int start, int end) {
+        int pivot = array[start];
+        int i = start;
+        int j = end;
+
+        while (i < j) {
+            // NOTE: empty loop body
+            while (i < j && array[--j] >= pivot);
+
+            if (i < j) {
+                array[i] = array[j];
+            }
+
+            // NOTE: empty loop body
+            while (i < j && array[++i] <= pivot);
+
+            if (i < j) {
+                array[j] = array[i];
+            }
+        }
+
+        array[j] = pivot;
+
+        return j;
+    }
+
+    /**
      * Merge sort
      *
      * Time complexity: O(n * log(n)), O of n * log(n)

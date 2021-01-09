@@ -39,6 +39,29 @@
 
 **Merge sort**
 
+* Divide and conquer algorithm
+* Recursive algorithm
+* Two phases: splitting (logical, e.i not create new arrays) and merging
+* Starting with unsorted array
+* Divides an array into two sub arrays. The first array is the left array, and the second array is the right array
+* Keep splitting until all the arrays have only one element each - one element array is always sorted
 * Time complexity: O(n * log(n))
 * Space complexity: Not in-place algorithm
 * Stable algorithm
+
+---
+
+**Quick sort**
+
+* Divide and conquer algorithm
+* Recursive algorithm
+* Uses pivot element to partition the array into two parts
+* Elements to the left < pivot, elements to the right > pivot
+* Pivot will be in its correct sorted position
+* Process is repeated for the left and right arrays
+* Eventually, every element has been he pivot, so every element will be in its correct sorted position
+* As with merge sort, we'll end up with partitioning the array into a series of 1-element arrays
+* Time complexity: On average it is O(n * log(n)), O of n * log(n), in it's worst case it's O(n ^ 2)
+  Most of the time it performs better than the merge sort
+* Space complexity: In-place algorithm
+* Unstable algorithm
