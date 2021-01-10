@@ -183,6 +183,55 @@ public class Sort {
         System.arraycopy(temp, 0, array, start, tempIndex);
     }
 
+    /**
+     * Merge sort
+     *
+     * Time complexity: O(n * log(n)), O of n * log(n)
+     * Space complexity: Not in-place algorithm
+     * Stable algorithm
+     *
+     * @param array unsorted array
+     * @param start unsorted array start index
+     * @param end unsorted array end index
+     */
+    public static void mergeSortDesc(int[] array, int start, int end) {
+        if (end - start < 2) {
+            return;
+        }
+
+        int mid = (start + end) / 2;
+        mergeSortDesc(array, start, mid);
+        mergeSortDesc(array, mid, end);
+        mergeDesc(array, start, mid, end);
+    }
+
+    /**
+     * Merges two unsorted partitions.
+     *
+     * @param array unsorted array
+     * @param start unsorted array start index
+     * @param mid unsorted array mid index
+     * @param end unsorted array end index
+     */
+    private static void mergeDesc(int[] array, int start, int mid, int end) {
+        if (array[mid - 1] >= array[mid]) {
+            return;
+        }
+
+        int i = start;
+        int j = mid;
+        int tempIndex = 0;
+
+        int[] temp = new int[end - start];
+
+        while (i < mid && j < end) {
+            temp[tempIndex++] = array[i] >= array[j] ? array[i++] : array[j++];
+        }
+
+        System.arraycopy(array, i, array, start + tempIndex, mid - i);
+        System.arraycopy(temp, 0, array, start, tempIndex);
+    }
+
     public static int[] shellSortAscGapOfKnuth(int[] array) {
         int gap = getKnuthSequence(array.length);
 
