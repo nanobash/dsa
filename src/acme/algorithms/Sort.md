@@ -79,3 +79,18 @@
 * Time complexity: O(n), O of n
 * Space complexity: Not in-place algorithm
 * Unstable (generally unstable, can be made as stable with additional sort though)
+
+---
+
+**Radix sort**
+
+* Makes assumptions about the data
+* Data must have same radix and width
+  * Therefore data must be integers or strings
+* Sort is based on each individual digit or letter position
+* Start at rightmost position
+* Must use a stable sort algorithm at each stage
+* Tome complexity: O(n), O of n
+  * However, if often runs slower than O(n * log(n)), because of the overhead involved
+* Space complexity: in-place depending on which sort algorithm is used
+* Stable algorithm

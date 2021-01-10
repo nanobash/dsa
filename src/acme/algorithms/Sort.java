@@ -2,6 +2,59 @@ package acme.algorithms;
 
 public class Sort {
     /**
+     * Sorts array with radix sort based on assumptions that the radix and the width should be the same of items.
+     *
+     * @param array unsorted array
+     * @param radix number
+     * @param width number
+     */
+    public static void radixSortAsc(int[] array, int radix, int width) {
+        for (int i = 0; i < width; ++i) {
+            radixSortSingleAsc(array, i, radix);
+        }
+    }
+
+    /**
+     *
+     * @param array unsorted array
+     * @param position digit position in number
+     * @param radix system
+     */
+    private static void radixSortSingleAsc(int[] array, int position, int radix) {
+        int numItems = array.length;
+        int[] countArray = new int[radix];
+
+        for (int value: array) {
+            countArray[getDigit(position, value, radix)]++;
+        }
+
+        // adjust the count array
+        for (int j = 1; j < radix; ++j) {
+            countArray[j] += countArray[j - 1];
+        }
+
+        int[] temp = new int[numItems];
+        for (int tempIndex = numItems - 1; tempIndex >= 0; --tempIndex) {
+            temp[--countArray[getDigit(position, array[tempIndex], radix)]] = array[tempIndex];
+        }
+
+        System.arraycopy(temp, 0, array, 0, numItems);
+    }
+
+    /**
+     * Returns value of the digit at each position.
+     *
+     * @param position position of digit in number
+     * @param value of item
+     * @param radix digit system of 10
+     *
+     * @return value of the digit at each position
+     */
+    public static int getDigit(int position, int value, int radix) {
+        return value / (int) Math.pow(radix, position) % radix;
+    }
+
+    /**
      * Sorts array based on counting sort assumptions
      *
      * @param array unsorted array
