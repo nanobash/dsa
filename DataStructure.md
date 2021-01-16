@@ -106,3 +106,24 @@ Add an element to a not full array that has space     | O(1), O of 1, constant t
 Insert or update an element at a specific index       | O(1), O of 1, constant time
 Delete an element by index setting it to null         | O(1), O of 1, constant time
 Delete an element by shifting elements                | O(n), O of n, linear time
+
+# Stack & Queue belong to an abstract data type
+
+* Doesn't dictate how the data is stored
+* Dictates the operations you can perform (how to access the data)
+* Concrete data structure is usually a concrete class
+* Abstract data type is usually an interface
+  * Stack
+  * Queue
+
+# Hash Tables
+
+* Abstract data type
+* Provides access to data using keys
+* Key doesn't have to be an integer
+* Consists key/value pairs - data types don't have to match
+* Optimised for retrieval - when key is known
+* An associative array is one type of hash table
+* Hash function maps keys of any data type to an integer
+* In Java, hash function is Object.hashCode()
+* Collision happens when more than one value has the same hashed value 
