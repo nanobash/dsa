@@ -94,3 +94,16 @@
   * However, if often runs slower than O(n * log(n)), because of the overhead involved
 * Space complexity: in-place depending on which sort algorithm is used
 * Stable algorithm
+
+---
+
+**Bucket sort**
+
+* Uses hashing
+* Makes assumptions about data, like radix and counting sort
+* Time complexity: O(n), O of n
+* Performs best when hashed values of items being sorted are evenly distributed, so there are not many collisions
+* Distribute the items into buckets based on their hashed values (scattering phase)
+* Sort the items in each bucket
+* Merge the buckets - can just concatenate them (gathering them)
+* Basically it is a generalisation of counting sort
