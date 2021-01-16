@@ -2,6 +2,74 @@ package acme.algorithms;
 
 public class Sort {
     /**
+     * Array must be sorted in order to use binary search.
+     *
+     * Time complexity: O(log(n))
+     * Space complexity: In-place algorithm
+     *
+     * @param input sorted array
+     * @param value needle
+     *
+     * @return index of needle in the sorted array
+     */
+    public static int binarySearchIterative(int[] input, int value) {
+        int start = 0;
+        int end = input.length;
+
+        while (start < end) {
+            int mid = (start + end) / 2;
+
+            if (input[mid] == value) {
+                return mid;
+            } else if (input[mid] < value) {
+                start = mid + 1;
+            } else {
+                end = mid;
+            }
+        }
+
+        return -1;
+    }
+
+    /**
+     * Recursive binary search implementation.
+     *
+     * Time complexity: O(log(n))
+     * Space complexity: In-place algorithm
+     *
+     * @param input sorted array
+     * @param value needle
+     *
+     * @return index of needle or -1 if not found
+     */
+    public static int binarySearchRecursive(int[] input, int value) {
+        return binarySearchRecursive(input, value, 0, input.length);
+    }
+
+    /**
+     *
+     * @param input sorted array
+     * @param value needle
+     * @param start index
+     * @param end index
+     *
+     * @return needle index or -1 if not found
+     */
+    private static int binarySearchRecursive(int[] input, int value, int start, int end) {
+        if (start >= end)
+            return -1;
+
+        int mid = (start + end) / 2;
+
+        if (input[mid] == value)
+            return mid;
+        else if (input[mid] < value)
+            return binarySearchRecursive(input, value, mid + 1, end);
+        else
+            return binarySearchRecursive(input, value, start, mid);
+    }
+
+    /**
      * Sorts array with radix sort based on assumptions that the radix and the width should be the same of items.
      *
      * @param array unsorted array

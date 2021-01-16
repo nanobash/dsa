@@ -107,3 +107,14 @@
 * Sort the items in each bucket
 * Merge the buckets - can just concatenate them (gathering them)
 * Basically it is a generalisation of counting sort
+
+---
+
+**Binary search**
+
+* Data must be sorted
+* Chooses the element in the middle of the array and compares it against search value
+* If element is equal to the value, we are done
+* If element is greater than the value, search the left half of the array
+* If element is less than the value, search the right half of the array
+* Time complexity: O(log(n)), O of log(n)
