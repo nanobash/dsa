@@ -127,3 +127,37 @@ Delete an element by shifting elements                | O(n), O of n, linear tim
 * Hash function maps keys of any data type to an integer
 * In Java, hash function is Object.hashCode()
 * Collision happens when more than one value has the same hashed value 
+
+# Trees
+
+* Hierarchical data structure
+* Every item in the tree is a node
+* The node at the top of the tree is the root
+* Every non-root item has one and only one parent
+* A leaf node has no child
+* A singleton tree has only one node - the root
+* Depth of the node is the number of edges from the node to the tree's root node
+* Height of the node is the longest path from the node to down to a leaf node
+
+# Binary tree
+
+* Every node has 0, 1 or 2 child nodes
+* Children nodes are referred as left and right childs
+* In practice, we use binary search trees
+* Binary tree is complete if every level except the last level, has two child and on the last level, all of the nodes are as left as possible
+* Full complete tree should have two child except leaf nodes
+
+# Binary search tree (BST)
+
+* Can perform insertions, deletions, and retrievals in O(log(n)), O of log(n) time
+* The left child always has a smaller value that its parent
+* The right child always has a larger value that its parent
+* This means that, everything to the left of the root is less than the value of the root, and everything on the right side of the root is greater than the value of the root node
+* Because of that, we can do a binary search
+* Most popular self-balancing trees are AVL and red-black trees
+
+  * Traversals
+    * Level - visit nodes on each level
+    * Pre-order - visit the root of every subtree first
+    * Post-order - visit the root of every subtree last
+    * In-order - visit left child, then root, then right child (eventually this sorts items)
