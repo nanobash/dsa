@@ -90,6 +90,22 @@ public class Heap {
         return 2 * index + (left ? 1 : 2);
     }
 
+    /**
+     * Time complexity: O(n * log(n)), O of n * log(n)
+     * Space complexity: In-place algorithm
+     */
+    public void sort() {
+        int lastHeapIndex = this.size - 1;
+
+        for (int i = 0; i < lastHeapIndex; ++i) {
+            int temp = this.heap[0];
+            this.heap[0] = this.heap[lastHeapIndex - i];
+            this.heap[lastHeapIndex - i] = temp;
+
+            this.fixHeapBelow(0, lastHeapIndex - i - 1);
+        }
+    }
+
     private void fixHeapAbove(int index) {
         int newValue = this.heap[index];
 
