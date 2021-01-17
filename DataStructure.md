@@ -161,3 +161,20 @@ Delete an element by shifting elements                | O(n), O of n, linear tim
     * Pre-order - visit the root of every subtree first
     * Post-order - visit the root of every subtree last
     * In-order - visit left child, then root, then right child (eventually this sorts items)
+
+# Heap (Special type of BST)
+
+* A complete binary tree
+* Must satisfy the heap property
+* Max heap: every parent is greater than or equal to its children
+* Min heap: every parent is less than or equal to its children
+* Children are added at each level from left to right
+* Usually implemented as arrays
+* The maximum/minimum value will always be at the root of the tree (the advantage of heap)
+* Heapify: process of converting a binary tree into a heap - this often has to be done after insertion or deletion
+* No required ordering between siblings
+* Backed by array
+  * For the node at array[i]
+  * left node child:  2 * i + 1
+  * right node child: 2 * i + 2
+  * parent: floor((i - 1) / 2)
